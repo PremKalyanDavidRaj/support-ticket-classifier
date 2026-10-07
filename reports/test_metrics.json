@@ -1,0 +1,32 @@
+{
+  "model_sha256": "bda3beef8f7bad535d1c0a6f2b04dc0a7c6168642c26d83b23982ff868a37dc4",
+  "test_sha256": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+  "selected_configuration": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 1,
+    "sublinear_tf": true,
+    "max_features": 50000,
+    "C": 4.0,
+    "max_iter": 1000,
+    "solver": "lbfgs",
+    "random_state": 42
+  },
+  "original_test": {
+    "rows": 3080,
+    "categories_present": 77,
+    "accuracy": 0.8772727272727273,
+    "macro_f1": 0.8777409751738211
+  },
+  "filtered_test": {
+    "rows": 3072,
+    "categories_present": 77,
+    "accuracy": 0.876953125,
+    "macro_f1": 0.8773936350798155
+  },
+  "development_overlap_rows_removed": 7,
+  "additional_duplicate_rows_removed": 1,
+  "note": "Model selected using validation data only. Filtered subset removes normalized exact-text overlap and keeps the first occurrence of repeated test text. Paraphrase overlap is not assessed."
+}
