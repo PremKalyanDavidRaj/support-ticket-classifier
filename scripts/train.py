@@ -58,12 +58,12 @@ def main():
     model = Pipeline([
         ("tfidf", TfidfVectorizer(
             ngram_range=(1, 2),
-            min_df=2,
+            min_df=1,
             sublinear_tf=True,
             max_features=50000,
         )),
         ("classifier", LogisticRegression(
-            C=1.0,
+            C=4.0,
             max_iter=1000,
             solver="lbfgs",
             random_state=42,
@@ -96,10 +96,10 @@ def main():
         "validation_sha256": file_hash(validation_path),
         "configuration": {
             "ngram_range": [1, 2],
-            "min_df": 2,
+            "min_df": 1,
             "sublinear_tf": True,
             "max_features": 50000,
-            "C": 1.0,
+            "C": 4.0,
             "max_iter": 1000,
             "solver": "lbfgs",
             "random_state": 42,
