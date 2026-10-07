@@ -1,0 +1,11 @@
+{
+  "source_rows": 10003,
+  "conflicting_rows_removed": 0,
+  "duplicate_rows_removed": 4,
+  "training_rows": 7999,
+  "validation_rows": 2000,
+  "categories": 77,
+  "normalized_text_overlap": 0,
+  "random_seed": 42,
+  "test_split": "Untouched; reserved for final evaluation"
+}
