@@ -5,18 +5,25 @@ messages into 77 intent categories using TF-IDF and logistic regression.
 
 ## Results
 
-Measured on a 2,000-example validation split:
+The selected model uses word unigrams and bigrams, `min_df=1`,
+and logistic regression with `C=4.0`.
 
-| Metric | Majority-class baseline | TF-IDF + Logistic Regression |
-| --- | ---: | ---: |
-| Accuracy | 1.90% | 84.55% |
-| Macro-F1 | 0.0005 | 0.8426 |
+| Evaluation set | Rows | Accuracy | Macro-F1 |
+| --- | ---: | ---: | ---: |
+| Validation | 2,000 | 87.45% | 0.8762 |
+| Original test | 3,080 | 87.73% | 0.8777 |
+| Filtered test | 3,072 | 87.70% | 0.8774 |
 
-The model was trained on 7,999 examples after removing four duplicate
-training texts and creating a stratified training/validation split.
+Training used 7,999 examples. Three configurations were compared
+on validation data, improving validation accuracy from 84.55%
+to 87.45%. The selected model was frozen before test evaluation.
 
-These are validation results, not final test results.
-The original test split has not been evaluated.
+The filtered test subset excludes seven examples matching normalized
+development text and one additional repeated test text. All 77
+categories remain represented. Paraphrase overlap was not assessed.
+
+Source-data and model hashes are recorded in the reports.
+See `reports/model_comparison.json` and `reports/test_metrics.json`.
 
 ## Features
 
@@ -130,16 +137,16 @@ and preprocessing details.
 - Model probabilities have not been calibrated.
 - No automatic-routing confidence threshold has been selected.
 - Unknown-word handling is not general out-of-domain detection.
-- Training/validation normalized-text overlap is checked;
-  training/test overlap has not yet been audited.
+- Normalized exact-text overlap is audited; paraphrase overlap
+  and generalization to other datasets remain unassessed.
 - Routing-team and priority labels are not present in the dataset.
 - The local API has no authentication or rate limiting.
-- Final held-out test evaluation remains pending.
+- Test results apply to BANKING77, not unseen production traffic.
 
 ## Next steps
 
 - Analyze validation mistakes and commonly confused categories.
 - Compare additional model configurations.
 - Evaluate confidence-based human-review thresholds.
-- Audit test overlap and perform final held-out evaluation.
+- Evaluate on a separate dataset before claiming broader generalization.
 - Add Docker packaging and deployment monitoring.
