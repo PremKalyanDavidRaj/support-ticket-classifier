@@ -1,0 +1,32 @@
+{
+  "evaluation_split": "validation",
+  "training_rows": 7999,
+  "validation_rows": 2000,
+  "baseline": {
+    "accuracy": 0.019,
+    "macro_f1": 0.0004843047041280604
+  },
+  "tfidf_logistic_regression": {
+    "accuracy": 0.8455,
+    "macro_f1": 0.8426211073965016
+  },
+  "training_seconds": 2.04,
+  "python_version": "3.13.1",
+  "sklearn_version": "1.9.1",
+  "training_sha256": "6bd1c744785d88c2d29839579f6671ae99c9cf5cf042740b654ac3ef9e8dd76e",
+  "validation_sha256": "ef01f99937ba75e8615f72a4c1a34b153ca0e9eead1b6f153ba8b04bc12093db",
+  "configuration": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "sublinear_tf": true,
+    "max_features": 50000,
+    "C": 1.0,
+    "max_iter": 1000,
+    "solver": "lbfgs",
+    "random_state": 42
+  },
+  "model_sha256": "34d9c2180b6861386e0c848aa757eefe2045ea1df80be38a0d79225e483b3ed3"
+}
